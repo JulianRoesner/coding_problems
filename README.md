@@ -3,11 +3,11 @@ These are my solutions to some of the 100 coding interview questions listed [her
 
 ## Run the tests
 You can run each individual file with this command:
-'''bash
+'''
 swift <filename>
 '''
 
 If you want to run all the tests with all the files, just use the bash script
-'''bash
+'''
 ./run_tests.sh
 '''
