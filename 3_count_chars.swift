@@ -31,8 +31,16 @@ assert(foundCount==5, "Space character was found \(foundCount) instead of 5 time
 
 //Numbers are correctly counted
 foundCount = count(character: "1", inText: testString)
-assert(foundCount==1, "1 character was found \(foundCount) instead of 5 times")
+assert(foundCount==1, "1 character was found \(foundCount) instead of 1 time")
 
 //Characters are correctly counted
 foundCount = count(character: "e", inText: testString)
-assert(foundCount==2, "e character was found \(foundCount) instead of 5 times")
+assert(foundCount==2, "e character was found \(foundCount) instead of 2 times")
+
+//Last characters are correctly counted
+foundCount = count(character: "!", inText: testString)
+assert(foundCount==1, "! character was found \(foundCount) instead of 1 time")
+
+//First characters are correctly counted and it is case sensitive
+foundCount = count(character: "T", inText: testString)
+assert(foundCount==1, "T character was found \(foundCount) instead of 1 time")

@@ -3,8 +3,9 @@
 FILES=*.swift
 
 for f in $FILES
-do
-	echo "Running $f ..."
+do	
 	# run file
 	swift $f
+
+	echo "$f: tests passed"
 done
