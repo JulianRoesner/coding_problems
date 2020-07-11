@@ -37,7 +37,7 @@ func sort(array : [Int]) -> [Int]{
 		}
 	}
 	//Sort the buckets
-	for index in 0...4{
+	for index in 0..<buckets.count{
 		buckets[index] = mergesort(array: buckets[index])
 	}
 
@@ -54,6 +54,7 @@ func sort(array : [Int]) -> [Int]{
 
 }
 
+//mergesort is taken from solution to problem number 2
 func mergesort(array: [Int]) -> [Int]{
 	var newArray : [Int]
 	if(array.count<2){
