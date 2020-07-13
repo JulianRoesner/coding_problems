@@ -4,11 +4,12 @@ func findDuplicates(inArray : [Int]) -> [Int]{
 
 	//Count elements
 	for elem in inArray{
-		if let count = counts[elem]{
+		if counts[elem] != nil{
 			counts[elem]! += 1
 		}else{
 			counts[elem] = 1
 		}
+	}
 
 	var foundDuplicates : [Int] = Array()
 	for elem in inArray{
@@ -24,14 +25,14 @@ func findDuplicates(inArray : [Int]) -> [Int]{
 }
 
 
-var noDuplicates = [7,5,2,1,8,9,0]
-var oneDuplicat = [7,2,1,6,2,8]
-var duplicates = [7,0,2,8,8,9,0,4,15,0,27]
+let noDuplicates = [7,5,2,1,8,9,0]
+let oneDuplicate = [7,2,1,6,2,8]
+let duplicates = [7,0,2,8,8,9,0,4,15,0,27]
 
 var result = findDuplicates(inArray: noDuplicates)
 assert( result == [], "Found duplicates in array with no duplicates \(result)")
 
-result = findDuplicates(inArray: oneDuplicat)
+result = findDuplicates(inArray: oneDuplicate)
 assert( result == [2], "Found wrong duplicate instead of 2 \(result)")
 
 result = findDuplicates(inArray: duplicates)

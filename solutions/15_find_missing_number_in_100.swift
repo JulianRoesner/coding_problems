@@ -1,6 +1,6 @@
 //Find the missing number from 1 to 100
 func findingOneMissingNumber(inArray: [Int], range: Int) -> Int{
-	var expectedSum = (range/2) * (range + 1)
+	let expectedSum = (range/2) * (range + 1)
 
 	var actualSum = 0
 	for elem in inArray{
