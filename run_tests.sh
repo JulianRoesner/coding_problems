@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FILES=*.swift
+FILES=solutions/*.swift
 
 for f in $FILES
 do	
