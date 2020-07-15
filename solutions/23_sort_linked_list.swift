@@ -47,17 +47,41 @@ class LinkedList: CustomStringConvertible{
 
 func sort(list: inout LinkedList){
 	if var root = list.root{
-		var current = root
-		var lastSortedElement : Node
-		while current != lastSortedElement{
-			while var next = current.next && next != lastSortedElement{
-				if (current.value > next.value){
-					current.next = next.next
-					next.next = current
+		if var lastElem = root.next{
+			
+			while(root !== lastElem){
+				
+
+				// Change root to set beginning of list correctly
+				if let rootNext = root.next{
+					if (root.value > rootNext.value){
+						root.next = rootNext.next
+						rootNext.next = root
+						list.root = rootNext
+						root = rootNext
+					}	
 				}
-			}
-			lastSortedElement = current
-			current = root	
+
+				var prev = root
+				
+				while let current = prev.next{
+
+					if (current === lastElem ){
+						lastElem = prev
+						break
+					}
+					if let next = current.next{
+						if current.value > next.value{
+							current.next = next.next
+							next.next = current
+							prev.next = next
+						}
+					}else{
+						lastElem = current
+					}
+					prev = current
+				}
+			}	
 		}
 		
 	}
@@ -83,8 +107,8 @@ func compare(this: LinkedList, withThis: LinkedList)->Bool{
 		return false
 	}
 }
-var testList = LinkedList(root: Node(value: 4, next: Node(value: 3, next: Node(value: 1, next: Node(value: 2, next: nil)))))
-var sortedList = LinkedList(root: Node(value: 1, next: Node(value: 2, next: Node(value: 3, next: Node(value: 4, next: nil)))))
+var testList = LinkedList(root: Node(value: 4, next: Node(value: 3, next: Node(value: -1, next: Node(value: 2, next: nil)))))
+var sortedList = LinkedList(root: Node(value: -1, next: Node(value: 2, next: Node(value: 3, next: Node(value: 4, next: nil)))))
 
 sort(list: &testList)
 assert(compare(this:testList, withThis: sortedList), "List was not correctly sorted \(testList)")
