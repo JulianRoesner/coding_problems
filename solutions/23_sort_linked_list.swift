@@ -45,6 +45,7 @@ class LinkedList: CustomStringConvertible{
 	}
 }
 
+//Use bubble sort to sort the linked list
 func sort(list: inout LinkedList){
 	if var root = list.root{
 		if var lastElem = root.next{
@@ -52,7 +53,9 @@ func sort(list: inout LinkedList){
 			while(root !== lastElem){
 				
 
-				// Change root to set beginning of list correctly
+				/* 	root has to be checked on its own, to make sure, that we set the root of the linked list correctly
+					afterwards we can easily traverse the list
+				*/
 				if let rootNext = root.next{
 					if (root.value > rootNext.value){
 						root.next = rootNext.next
