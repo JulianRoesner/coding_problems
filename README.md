@@ -1,4 +1,4 @@
-# Practicing coding problems
+# 100 coding problems
 These are my solutions to some of the 100 coding interview questions listed [here](https://codeburst.io/100-coding-interview-questions-for-programmers-b1cf74885fb7). Unless they are answers to design questions, the solutions are implemented in Swift.
 
 ## Run the tests
