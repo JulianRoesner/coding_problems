@@ -16,7 +16,7 @@ func reverseRec(of: String, iteration: Int)-> String{
 
 //TESTS
 var empty = ""
-var palindrom = "hannah"
+var palindrome = "hannah"
 var teststring = "abcdefg"
 
 var result = reverse(of: empty)

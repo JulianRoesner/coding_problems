@@ -19,7 +19,7 @@ func reverse(thisString: inout String){
 
 //TESTS
 var empty = ""
-var palindrom = "hannah"
+var palindrome = "hannah"
 var teststring = "abcdefg"
 
 reverse(thisString: &empty)
