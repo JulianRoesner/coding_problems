@@ -18,7 +18,6 @@ The coding challenges are listed in a more or less arbitrary order.
 **Sorting**
 - Bubble sort (1.)
 - Merge sort (2.)
-
 - Bucket sort (6.)
 - Counting sort (7.)
 - Radix sort (11.)
@@ -40,10 +39,8 @@ The coding challenges are listed in a more or less arbitrary order.
 - Add element to middle of linked list (22.)
 - Sort a linked list (23.)
 - Remove n-th node from end (39.)
-
 - Merge two sorted lists (40.)
 - Convert sorted list to binary search tree (41.)
-
 - Find middle of linked list (48.)
 - Check for cycle and find beginning (49.)
 - Remove duplicates from unsorted list (52.)
