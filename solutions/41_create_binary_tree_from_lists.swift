@@ -70,11 +70,11 @@ class TreeNode: CustomStringConvertible{
 			rightText = "nil"
 		}
 
-		return "(Node: \(value)) left: \(leftText) right:\(rightText))"
+		return "(Node: \(value) left: \(leftText) right:\(rightText))"
 	}
 
 	public var height: Int{
-		if(leftChild== nil && rightChild == nil){
+		if(leftChild == nil && rightChild == nil){
 			return 0
 		}else if(leftChild == nil){
 			return rightChild!.height + 1
@@ -88,6 +88,55 @@ class TreeNode: CustomStringConvertible{
 			}
 		}
 	}
+
+	public func insert(value: Int) -> TreeNode{
+		if(self.value > value){
+			if let lefti = leftChild{
+				leftChild = lefti.insert(value: value)
+				if let righti = rightChild{
+					if lefti.height > righti.height + 1{
+						leftChild = lefti.leftChild
+						lefti.rightChild = self
+						return lefti
+					}else{
+						return self
+					}
+				}else if lefti.height > 1{
+					leftChild = lefti.leftChild
+					lefti.rightChild = self
+					return lefti
+				}else{
+					return self
+				}
+			} else{
+				leftChild = TreeNode(value: value, leftChild: nil, rightChild: nil)
+				return self
+			}
+		}else{
+			if let righti = rightChild{
+				rightChild = righti.insert(value: value)
+				if let lefti = leftChild{
+					if righti.height > lefti.height + 1{
+						rightChild = righti.leftChild
+						righti.leftChild = self
+						return righti
+					}else{
+						return self
+					}
+				}else if righti.height > 1{
+						rightChild = righti.leftChild
+						righti.leftChild = self
+						return righti
+				}else{
+					return self
+				}
+			}else{
+				rightChild = TreeNode(value: value, leftChild: nil, rightChild: nil)
+				return self
+			}
+		}
+
+	}
 }
 
 class BinarySearchTree: CustomStringConvertible{
@@ -100,19 +149,32 @@ class BinarySearchTree: CustomStringConvertible{
 	public var description: String { 
 		return "(LinkedList:  root \(root as TreeNode?)) "		
 	}
+
+	public func insert(value: Int){
+		guard let start = root else{
+			root = TreeNode(value: value, leftChild: nil, rightChild: nil)
+			return
+		}
+
+		root = start.insert(value: value)
+	}
 }
 
 func createBinaryTree(from: LinkedList)->BinarySearchTree{
-	return BinarySearchTree(root: createBinaryTree(from: from.root))
+	var tree = BinarySearchTree(root: nil)
+	return createBinaryTree(from: from.root, with: &tree)
 }
 
-func createBinaryTree(from: Node?) -> TreeNode{
+func createBinaryTree(from: Node?, with: inout BinarySearchTree) -> BinarySearchTree{
 	guard let node = from else{
-		return nil
+		return with
 	}
 
-	
+	with.insert(value: node.value)
+
+	return createBinaryTree(from: node.next, with: &with)
 }
+
 
 //TESTS
 func compare(thisTree: BinarySearchTree, withThat: BinarySearchTree) -> Bool{
@@ -142,10 +204,10 @@ func compare(thisNode: TreeNode?, withThat: TreeNode?) -> Bool{
 	return  valueComparison && leftComparison && rightComparison
 }
 var testList = LinkedList(root: Node(value: 1, next: Node(value: 2, next: Node(value: 3, next: Node(value: 4, next: Node(value: 5, next: Node(value: 7, next: Node(value: 8, next: nil))))))))
-var shouldBe = BinarySearchTree(root: TreeNode(value: 4, leftChild: TreeNode(value: 2, leftChild: TreeNode(value: 1, leftChild: nil, rightChild: nil), rightChild: TreeNode(value: 3, leftChild: nil, rightChild: nil)), rightChild: TreeNode(value: 8, leftChild: TreeNode(value: 7, leftChild: nil, rightChild: nil), rightChild: nil)))
+var shouldBe = BinarySearchTree(root: TreeNode(value: 3, leftChild: TreeNode(value: 2, leftChild: TreeNode(value: 1, leftChild: nil, rightChild: nil), rightChild: nil), rightChild: TreeNode(value: 5, leftChild: TreeNode(value: 4, leftChild: nil, rightChild: nil), rightChild: TreeNode(value: 7, leftChild: nil, rightChild: TreeNode(value: 8, leftChild: nil, rightChild: nil)))))
 
 //Test Compare
 assert(compare(thisTree: shouldBe, withThat: shouldBe), "Comparison not working")
 
 var result = createBinaryTree(from: testList)
-assert(compare(thisTree: result, withThat: shouldBe, "Tree was not correctly created")
+assert(compare(thisTree: result, withThat: shouldBe), "Tree was not correctly created \(result)")
