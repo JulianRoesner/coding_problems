@@ -13,7 +13,7 @@ If you want to run all the tests with all the files, just use the bash script
 ```
 
 ## Challenges
-The coding challenges are listed in a more or less arbitrary order. 
+The original list lists the challenges unordered. To give a better overview, I sorted them according to topics:
 
 **Sorting**
 - Bubble sort (1.)
