@@ -25,8 +25,8 @@ var teststring = "abcdefg"
 reverse(thisString: &empty)
 assert(empty == "", "Empty string was not correctly reversed \(empty)")
 
-reverse(thisString: &palindrom)
-assert(palindrom == "hannah", "palindrom string was not correctly reversed \(palindrom)")
+reverse(thisString: &palindrome)
+assert(palindrome == "hannah", "palindrom string was not correctly reversed \(palindrome)")
 
 reverse(thisString: &teststring)
 assert(teststring == "gfedcba", "teststring string was not correctly reversed \(teststring)")
