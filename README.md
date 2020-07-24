@@ -13,60 +13,61 @@ If you want to run all the tests with all the files, just use the bash script
 ```
 
 ## Challenges
-The coding challenges are listed in a more or less arbitrary order. 
+The original list lists the challenges unordered. To give a better overview, I sorted them according to topics:
 
 **Sorting**
-- 1. Bubble sort
-- 2. Merge sort
-- 6. Bucket sort
-- 7. Counting sort
-- 11. Radix sort
-- 18. Difference between stable and unstable sorting algorithm
-- 19., 29. Quicksort
-- 25. Insertion sort
+- Bubble sort (1.)
+- Merge sort (2.)
+- Bucket sort (6.)
+- Counting sort (7.)
+- Radix sort (11.)
+- Difference between stable and unstable sorting algorithm (18.)
+- Quicksort (19., 29.)
+- Insertion sort (25.)
 
 **Arrays**
-- 8., 10., 26.  removing duplicates
-- 9. reversing arrays
-- 12. Swapping variables
-- 15. Find missing number in array 1 to 100
-- 16., 17.  Finding duplicate
-- 20. Find smallest and largest number in unsorted array
-- 24. Finding pairs of integers with special sum
+-  removing duplicates (8., 10., 26.)
+- reversing arrays (9.)
+- Swapping variables (12.)
+- Find missing number in array 1 to 100 (15.)
+-  Finding duplicate (16., 17.)
+- Find smallest and largest number in unsorted array (20.)
+- Finding pairs of integers with special sum (24.)
 
 **LinkedLists**
-- 21., 50., 51.  Reverse linkedlist inplace
-- 22. Add element to middle of linked list
-- 23. Sort a linked list
-- 39. Remove n-th node from end
-- 40. Merge two sorted lists
-- 41. Convert sorted list to binary search tree
-- 48. Find middle of linked list
-- 49. Check for cycle and find beginning
-- 52. Remove duplicates from unsorted list
+-  Reverse linkedlist inplace (21., 50., 51.)
+- Add element to middle of linked list (22.)
+- Sort a linked list (23.)
+- Remove n-th node from end (39.)
+- Merge two sorted lists (40.)
+- Convert sorted list to binary search tree (41.)
+- Find middle of linked list (48.)
+- Check for cycle and find beginning (49.)
+- Remove duplicates from unsorted list (52.)
 
 **Trees**
-- 41. Convert sorted list to binary search tree
+- Convert sorted list to binary search tree (41.)
 
 **String**
-- 3. Counting char occurences
-- 4. Printing first non-repeated chars
-- 5. Converting string to int
-- 27. Remove duplicate char from string
-- 28. Find maximum occurring char
-- 30., 34.  Reverse a string
-- 31. Find duplicate chars in string
-- 32. Check if strings are anagrams
-- 33. Find all permutations of a string
-- 35. Check for palindrome
-- 36. Longest non-repeating substring
-- 37. Longest palindromic substring
-- 38. Check for string with only digits
-- 43. Count vowels and consonants in a string
-- 44. Reverse words in a sentence
-- 45. Check if two strings are a rotation
-- 46. Convert byte array to string
-- 47. Replace char
+- Counting char occurences (3.)
+- Printing first non-repeated chars (4.)
+- Converting string to int (5.)
+- Remove duplicate char from string (27.)
+- Find maximum occurring char (28.)
+- Reverse a string (30., 34.)
+- Find duplicate chars in string (31.)
+- Check if strings are anagrams (32.)
+- Find all permutations of a string (33.)
+- Check for palindrome (35.)
+- Longest non-repeating substring (36.)
+- Longest palindromic substring (37.)
+- Check for string with only digits (38.)
+- Count vowels and consonants in a string (43.)
+- Reverse words in a sentence (44.)
+- Check if two strings are a rotation (45.)
+- Convert byte array to string (46.)
+- Replace char (47.)
+
 **Mixed**
-- 13. Check if two rectangles overlap
-- 14. Desing a vending machine
+- Check if two rectangles overlap (13.)
+- Desing a vending machine (14.)
