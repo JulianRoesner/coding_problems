@@ -1,0 +1,99 @@
+//Remove duplicates in a linked list (sorted) using no recursion
+import Swift 
+class Node: CustomStringConvertible{
+	var value : Int
+	var next : Node? = nil
+
+	init(value : Int, next: Node?){
+		self.value = value
+		if let node = next{
+			self.next = node
+		}
+	}
+
+	public var description: String { 
+		return "(Node: \(value)) " 
+	}
+
+}
+
+
+class LinkedList: CustomStringConvertible{
+	var root : Node? = nil
+
+	init(root: Node?){
+		if let node = root{
+			self.root = node
+		}
+	}
+
+	public var description: String { 
+		var descriptionText = "(LinkedList:  root \(root as Node?), "
+		var node = root
+
+		if node == nil{
+			return descriptionText + ")"
+		}else{
+			while let current = node!.next{
+				descriptionText += "\(current)"
+				node = current
+			}
+			descriptionText += " ) " 
+
+			return descriptionText
+		}
+		
+	}
+}
+
+func removeDuplicates(inList: inout LinkedList){
+	guard var root = inList.root else{
+		return
+	}
+	removeDuplicates(atNode: &root)
+}
+
+
+func removeDuplicates(atNode: inout Node){
+	guard var next = atNode.next else{
+		return
+	}
+
+	if (atNode.value == next.value){
+		atNode.next = next.next
+		removeDuplicates(atNode: &atNode)
+	}else{
+		removeDuplicates(atNode: &next)
+	}
+}
+//Tests
+func compare(this: LinkedList, withThis: LinkedList)->Bool{
+	var thisCurrentValue = this.root
+	var otherCurrentValue = withThis.root
+	while(thisCurrentValue != nil && otherCurrentValue != nil){
+		if (thisCurrentValue!.value != otherCurrentValue!.value){
+			return false	
+		}
+
+		thisCurrentValue = thisCurrentValue!.next
+		otherCurrentValue = otherCurrentValue!.next
+	}
+
+	if(thisCurrentValue == nil && otherCurrentValue == nil){
+		return true
+	}else{
+		return false
+	}
+}
+var testList = LinkedList(root: Node(value: 1, next: Node(value: 2, next: Node(value: 2, next: Node(value: 4, next: Node(value: 6, next: Node(value: 6, next: nil)))))))
+var duplicatesRemoved = LinkedList(root: Node(value: 1, next: Node(value: 2, next: Node(value: 4, next: Node(value: 6, next: nil)))))
+
+removeDuplicates(inList: &testList)
+assert(compare(this:testList, withThis: duplicatesRemoved), "Duplicates were not correctly removed \(testList)")
+
+removeDuplicates(inList: &testList)
+assert(compare(this:testList, withThis: duplicatesRemoved), "List with no duplicates, duplicates were incorrectly removed \(testList)")
+
+testList = LinkedList(root: nil)
+removeDuplicates(inList: &testList)
+assert(compare(this:testList, withThis: testList), "In empty list, duplicates were incorrectly removed \(testList)")
