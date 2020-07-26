@@ -86,7 +86,7 @@ var list2 = LinkedList(root: Node(value: 10, next: Node(value: 2, next: Node(val
 var list3 = LinkedList(root: Node(value: -10, next: Node(value: 2, next: Node(value: 3, next: Node(value: 6, next: nil)))))
 
 var result = sum(of: list1, and: list2)
-assert(result == 57, "Sum was incorrect \(result), should have been 57")
+assert(result == 56, "Sum was incorrect \(result), should have been 57")
 
 result = sum(of: list1, and: list3)
 assert(result == 37, "Sum with negative values was incorrect \(result), should have been 37")
