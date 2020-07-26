@@ -78,7 +78,7 @@ func fill(stack: inout [Int], with: Node?, and: Node?){
 	}
 
 	fill(stack: &stack, with: node, and: otherNode)
-
+}
 
 //Tests
 var list1 = LinkedList(root: Node(value: 17, next: Node(value: 2, next: Node(value: 1, next: Node(value: 4, next: Node(value: 6, next: Node(value: 6, next: nil)))))))
