@@ -13,7 +13,7 @@ func isPalindrome(this: String)-> Bool{
 var palindrome = "hannah"
 var palindrome1 = "hanxnah"
 var noPalindrome1 = "hannxh"
-var noPalindrome2 = "hannxh"
+var noPalindrome2 = "hanxh"
 var noPalindrome3 = "hannaH"
 
 assert(isPalindrome(this:palindrome), "\(palindrome) incorrectly found no palindrome")
