@@ -1,34 +1,10 @@
-//Implement a binary search tree
+//Traverse a binary tree preorder
 import Swift 
 class Node: CustomStringConvertible{
 	var value : Int
 	var leftChild : Node?
 	var rightChild : Node?
 	private let MAX_HEIGHT_DIFF : Int = 1 
-
-	init(value: Int, leftChild: Node, rightChild: Node){
-		self.value = value
-		self.leftChild = leftChild
-		self.rightChild = rightChild
-	}
-
-	init(value: Int, leftChild: Node){
-		self.value = value
-		self.leftChild = leftChild
-		self.rightChild = nil
-	}
-
-	init(value: Int, rightChild: Node){
-		self.value = value
-		self.leftChild = nil
-		self.rightChild = rightChild
-	}
-
-	init(value: Int){
-		self.value = value
-		self.leftChild = nil
-		self.rightChild = nil
-	}
 
 	public var description: String{
 		return "(Node: \(value)"
@@ -60,6 +36,32 @@ class Node: CustomStringConvertible{
 	private var heightDifference : Int{
 		return leftHeight - rightHeight
 	}
+
+	init(value: Int, leftChild: Node, rightChild: Node){
+		self.value = value
+		self.leftChild = leftChild
+		self.rightChild = rightChild
+	}
+
+	init(value: Int, leftChild: Node){
+		self.value = value
+		self.leftChild = leftChild
+		self.rightChild = nil
+	}
+
+	init(value: Int, rightChild: Node){
+		self.value = value
+		self.leftChild = nil
+		self.rightChild = rightChild
+	}
+
+	init(value: Int){
+		self.value = value
+		self.leftChild = nil
+		self.rightChild = nil
+	}
+
+	
 
 	public func insert(value: Int) -> Node{
 
@@ -103,12 +105,33 @@ class Node: CustomStringConvertible{
 		}
 	}
 
+	public func traversePreorder() -> [Int]{
+
+		var resultArr: [Int] = Array()
+		resultArr.append(value) 
+		if leftChild != nil{
+			resultArr.append(contentsOf: leftChild!.traversePreorder())
+		}
+
+		if rightChild != nil{
+			resultArr.append(contentsOf: rightChild!.traversePreorder())
+		}
+
+		return resultArr
+	}
 	
 }
 
 class BinarySearchTree: CustomStringConvertible{
 	var root : Node?
 
+	public var description: String{
+		guard root != nil else{
+			return "(Empty binary search tree)"
+		}
+
+		return "(Binary tree: \(root!)"
+	}
 	init(root: Node){
 		self.root = root
 	}
@@ -125,53 +148,33 @@ class BinarySearchTree: CustomStringConvertible{
 		}
 	}
 
-	public var description: String{
+	
+
+	public func traversePreorder() -> [Int]{
 		guard root != nil else{
-			return "(Empty binary search tree)"
+			return []
 		}
+		return root!.traversePreorder()
 
-		return "(Binary tree: \(root!)"
 	}
 }
 
 
-//Creating a BST for a test
-func compare(thisTree: BinarySearchTree, withThat: BinarySearchTree) -> Bool{
-	guard let thisRoot = thisTree.root else{
-		return withThat.root == nil
-	}
-
-	guard let thatRoot = withThat.root else{
-		return false
-	}
-
-	return compare(thisNode: thisRoot, withThat: thatRoot)
-}
-
-func compare(thisNode: Node?, withThat: Node?) -> Bool{
-
-	guard let thisNodeBind = thisNode else{
-		return withThat == nil
-	}
-
-	guard let thatNodeBind = withThat else{
-		return false
-	}
-	let valueComparison = thisNodeBind.value == thatNodeBind.value
-	let leftComparison = compare(thisNode: thisNodeBind.leftChild, withThat: thatNodeBind.leftChild)
-	let rightComparison = compare(thisNode: thisNodeBind.rightChild, withThat: thatNodeBind.rightChild)
-	return  valueComparison && leftComparison && rightComparison
-}
-
+//TEST
 var node = Node(value: 4)
 var leftNode = Node(value: 3)
 var rightNode = Node(value: 6)
 node.leftChild = leftNode
 node.rightChild = rightNode
-var tree = BinarySearchTree(root: node)
-var testTree = BinarySearchTree()
 
-testTree.insert(value: 3)
-testTree.insert(value: 4)
-testTree.insert(value: 6)
-assert(compare(thisTree: testTree, withThat: tree), "Not the same tree was created through inserting")
+var testTree = BinarySearchTree(root: node)
+var result = testTree.traversePreorder()
+var shouldBe = [4,3,6]
+assert(result == shouldBe, "Incorrect traversing order \(result), should be \(shouldBe)")
+
+testTree.insert(value: 2)
+testTree.insert(value: 1)
+testTree.insert(value: 100)
+result = testTree.traversePreorder()
+shouldBe = [4,2,1,3,6,100]
+assert(result == shouldBe, "Incorrect traversing order \(result), should be \(shouldBe)")
