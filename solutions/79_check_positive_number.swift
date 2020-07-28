@@ -1,4 +1,4 @@
-//Check if a given number is positive; we assume it is a signed Int
+//Check if a given number is positive; we assume it is a signed 32Int
 func isPositive(number: Int32 )-> Bool{
 	let bitMask: Int32 = 0x100000
 
