@@ -43,15 +43,15 @@ assert( result == 1, "Found wrong key (\(result), instead of 1")
 cache.put(3, 3);    // evicts key 2
 
 result = cache.get(2)
-assert(result == -1, "Found a key, although it should not have found any")      
+assert(result == -1, "Found a key, although should not have found any")      
 
 cache.put(4, 4);    // evicts key 1
 
 result = cache.get(1)
-assert(result == -1, "Found a key, although it should not have found any")   
+assert(result == -1, "Found a key, although should not have found any")   
 
 result = cache.get(3)
-assert(result == 3, "Found a key, although it should not have found any") 
+assert(result == 3, "Found wrong key (\(result), instead of 3")
 
 result = cache.get(4);      
-assert(result == 4, "Found a key, although it should not have found any") 
+assert(result == 4, "Found wrong key (\(result), instead of 4")

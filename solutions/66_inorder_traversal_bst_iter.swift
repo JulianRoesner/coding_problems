@@ -1,4 +1,4 @@
-//Traverse a binary tree preorder iterative
+//Traverse a binary tree inorder iterative
 import Swift 
 class Node: CustomStringConvertible{
 	var value : Int
@@ -142,22 +142,22 @@ class BinarySearchTree: CustomStringConvertible{
 
 		var stack : [Node] = Array()
 		var result : [Int] = Array()
+		
 		stack.append(current)
-		while (stack.count > 0){
+		//Search left tree
+		while(stack.count > 0){
+			while(current.leftChild != nil){
+			current = current.leftChild!
+			stack.append(current)
+			}
+			
 			current = stack.popLast()!
-
 			result.append(current.value)
-
 			if current.rightChild != nil{
 				stack.append(current.rightChild!)
+				current = current.rightChild!
 			}
-
-			if current.leftChild != nil{
-				stack.append(current.leftChild!)
-			}
-
 		}
-
 
 		return  result
 			
@@ -175,12 +175,14 @@ node.rightChild = rightNode
 
 var testTree = BinarySearchTree(root: node)
 var result = testTree.traverseInorder()
-var shouldBe = [4,3,6]
+var shouldBe = [3,4,6]
 assert(result == shouldBe, "Incorrect traversing order \(result), should be \(shouldBe)")
 
 testTree.insert(value: 2)
 testTree.insert(value: 1)
+testTree.insert(value: 10)
+testTree.insert(value: 21)
 testTree.insert(value: 100)
 result = testTree.traverseInorder()
-shouldBe = [4,2,1,3,6,100]
+shouldBe = [1,2,3,4,6,10,21,100]
 assert(result == shouldBe, "Incorrect traversing order \(result), should be \(shouldBe)")
