@@ -1,4 +1,4 @@
-//Sieve of Eratosthenes
+//Finding prime numbers for a given number
 import Foundation
 func eratosthenesSieve(of: Int)-> [Int]{
 	guard of >= 2 else{
