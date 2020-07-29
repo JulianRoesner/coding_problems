@@ -1,4 +1,5 @@
 //Sieve of Eratosthenes
+import Foundation
 func eratosthenesSieve(of: Int)-> [Int]{
 	guard of >= 2 else{
 		return []
@@ -45,6 +46,36 @@ func findPrimeFactors(of: Int)->[Int]{
 	return primeFactors
 }
 
+//A more efficient way to find all the prime factors
+func findPrimeFactorsEff(of: Int) ->[Int]{
+	guard of >= 2 else{
+		return []
+	}
+	var rest = of
+	var primeFactors : [Int] = Array()
+	if of % 2 == 0{
+		rest = Int(rest/2)
+		primeFactors.append(2)
+	}
+
+	var divisor = 3
+	while(divisor <= Int(sqrt(Double(of)))){
+		if rest % divisor == 0{
+			rest = Int(rest/divisor)
+			primeFactors.append(divisor)
+		}
+
+		divisor += 2
+	}
+
+	if(primeFactors.count < 1){
+		primeFactors.append(of)
+	}
+
+	return primeFactors
+
+}
+
 
 //Test eratosthenesSieve
 var primesSmaller2 : [Int] = []
@@ -66,10 +97,21 @@ var factorsOfAPrime = [13]
 var factorsOfNotAPrime = [2,3,5]
 
 result = findPrimeFactors(of: 1)
-assert(result == factorsOf1, "Found incorrect primes for 1: \(result) instead of \(primesSmaller2)")
+assert(result == factorsOf1, "Found incorrect primes for 1: \(result) instead of \(factorsOf1)")
 
 result = findPrimeFactors(of: 13)
-assert(result == factorsOfAPrime, "Found incorrect primes for 13: \(result) instead of \(primesSmaller2)")
+assert(result == factorsOfAPrime, "Found incorrect primes for 13: \(result) instead of \(factorsOfAPrime)")
 
 result = findPrimeFactors(of: 30)
-assert(result == factorsOfNotAPrime, "Found incorrect primes for 40: \(result) instead of \(primesSmaller2)")
+assert(result == factorsOfNotAPrime, "Found incorrect primes for 30: \(result) instead of \(factorsOfNotAPrime)")
+
+
+//Test finding prime factors efficient
+result = findPrimeFactorsEff(of: 1)
+assert(result == factorsOf1, "Found incorrect primes for 1: \(result) instead of \(factorsOf1)")
+
+result = findPrimeFactorsEff(of: 13)
+assert(result == factorsOfAPrime, "Found incorrect primes for 13: \(result) instead of \(factorsOfAPrime)")
+
+result = findPrimeFactorsEff(of: 30)
+assert(result == factorsOfNotAPrime, "Found incorrect primes for 30: \(result) instead of \(factorsOfNotAPrime)")
