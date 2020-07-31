@@ -7,8 +7,6 @@ func decimalToBinary(_ number: Int)->[Int]{
 		binaryNumber.append(0)
 	}
 
-	
-	
 	var result = abs(number)
 	var rest : Int
 
@@ -26,7 +24,6 @@ func decimalToBinary(_ number: Int)->[Int]{
 	var i = 1
 	var j = binaryNumber.count - 1
 	while(i < j){
-		print(binaryNumber[i])
 		let temp = binaryNumber[i]
 		binaryNumber[i] = binaryNumber[j]
 		binaryNumber[j] = temp 

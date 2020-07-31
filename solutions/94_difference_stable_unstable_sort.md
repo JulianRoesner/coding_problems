@@ -1,0 +1,2 @@
+# Difference between unstable and stable sorting
+In a stable sorting algorithm, the order of elements with the same value stays the same as in the original unsorted array or list. For example a stable algorithm would sort the list [17,6,3,3,1,2] to [1,2,3,3,6,17] and make sure, that the first three in the unsorted array is also the first three in the sorted list. This is not guaranteed for an unstable sorting.
