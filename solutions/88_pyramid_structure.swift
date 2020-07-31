@@ -11,7 +11,6 @@ func getPyramid(_ levels: Int) -> String{
 
 	return result
 }
-
 //TESTS
 var pyramidForOne = "* \n"
 var pyramidForTwo = "* \n* * \n"
