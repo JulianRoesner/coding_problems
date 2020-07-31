@@ -4,13 +4,12 @@ func sqrtLong(_ of: UInt32) -> UInt32 {
 	guard of > 1 else{
 		return of
 	}
-	for i in 0..<of{
-		if i * i >= of{
-			return i
-		}
-		
+	var i : UInt32 = 0
+	while (i * i <= of){
+		i += 1
 	}
-	return of - 1
+	
+	return i - 1
 }
 
 //This uses digit by digit computation
@@ -41,7 +40,7 @@ func sqrtEfficient(_ of: UInt32) -> UInt32 {
 var sqrtOf1 : UInt32 = 1
 var sqrtOf4 : UInt32 = 2
 var sqrtOf36: UInt32 = 6
-var sqrtOf2 : UInt32 = UInt32(sqrt(2))
+var sqrtOf3 : UInt32 = UInt32(sqrt(3))
 
 var result = sqrtLong(1)
 assert(result == sqrtOf1, "Incorrect result \(result) for square root of 1, should have been \(sqrtOf1)")
@@ -52,8 +51,8 @@ assert(result == sqrtOf4, "Incorrect result \(result) for square root of 4, shou
 result = sqrtLong(36)
 assert(result == sqrtOf36, "Incorrect result \(result) for square root of 36, should have been \(sqrtOf36)")
 
-result = sqrtLong(2)
-assert(result == sqrtOf2, "Incorrect result \(result) for square root of 2, should have been \(sqrtOf2)")
+result = sqrtLong(3)
+assert(result == sqrtOf3, "Incorrect result \(result) for square root of 3, should have been \(sqrtOf3)")
 
 result = sqrtEfficient(1)
 assert(result == sqrtOf1, "Incorrect result \(result) for square root of 1, should have been \(sqrtOf1) eff")
@@ -64,5 +63,5 @@ assert(result == sqrtOf4, "Incorrect result \(result) for square root of 4, shou
 result = sqrtEfficient(36)
 assert(result == sqrtOf36, "Incorrect result \(result) for square root of 36, should have been \(sqrtOf36) eff")
 
-result = sqrtEfficient(2)
-assert(result == sqrtOf2, "Incorrect result \(result) for square root of 2, should have been \(sqrtOf2)")
+result = sqrtEfficient(3)
+assert(result == sqrtOf3, "Incorrect result \(result) for square root of 3, should have been \(sqrtOf3)")
