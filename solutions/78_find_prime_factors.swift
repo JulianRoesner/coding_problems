@@ -1,7 +1,7 @@
 //Finding prime numbers for a given number
 import Foundation
 func eratosthenesSieve(of: Int)-> [Int]{
-	guard of >= 2 else{
+	guard of > 2 else{
 		return []
 	}
 	var potentialPrimes : [Int] = Array()
@@ -9,6 +9,7 @@ func eratosthenesSieve(of: Int)-> [Int]{
 		potentialPrimes.append(i)
 	}
 	var primes : [Int] = Array()
+	primes.append(2)
 	for potentialPrime in potentialPrimes{
 		if primes.count > 0{
 			var isPrime = true
