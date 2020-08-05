@@ -18,25 +18,27 @@ The original list lists the challenges unordered. To give a better overview, I s
 
 **Sorting**
 - Bubble sort (1.)
-- Merge sort (2.)
+- Merge sort (2., 98.)
 - Bucket sort (6.)
 - Counting sort (7.)
 - Radix sort (11.)
-- Difference between stable and unstable sorting algorithm (18.)
-- Quicksort (19., 29.)
-- Insertion sort (25.)
+- Difference between stable and unstable sorting algorithm (18., 94.)
+- Quicksort (19., 29., 96.)
+- Insertion sort (25., 97.)
+- Difference Comparison and Non-Comparison sort
 
 **Arrays**
--  removing duplicates (8., 10., 26.)
-- reversing arrays (9.)
-- Swapping variables (12.)
+- Removing duplicates (8., 10., 26.)
+- Reversing arrays (9.)
 - Find missing number in array 1 to 100 (15.)
--  Finding duplicate (16., 17.)
+- Finding duplicate (16., 17.)
 - Find smallest and largest number in unsorted array (20.)
 - Finding pairs of integers with special sum (24.)
+- Binary search in array (71.)
+- Binary search without recursion (93.)
 
 **LinkedLists**
--  Reverse linkedlist inplace (21., 50., 51.)
+- Reverse linkedlist inplace (21., 50., 51.)
 - Add element to middle of linked list (22.)
 - Sort a linked list (23.)
 - Remove n-th node from end (39.)
@@ -45,9 +47,26 @@ The original list lists the challenges unordered. To give a better overview, I s
 - Find middle of linked list (48.)
 - Check for cycle and find beginning (49.)
 - Remove duplicates from unsorted list (52.)
+- Remove duplicates from sorted list (57.)
+- Remove specific values from a linked list (61.)
+- Length of singly linked list (53.)
+- Third node from end of linked list (54.)
+- Sum of two linked lists (55.)
+- Difference array and linked list (56.)
+- Find node at intersection of two linked lists (58.)
+- Partition linked list according to x (59.)
+- Check linked list for palindrome (60.) 
 
 **Trees**
 - Convert sorted list to binary search tree (41.)
+- Implementation of a binary search tree (62.)
+- Preorder traversal (63., 64.)
+- Inorder traversal (65., 66.)
+- Postorder traversal (67., 68.)
+- Print all leaves of BST (69.)
+- Count number of leaves (70.)
+- Depth First Search (95.)
+
 
 **String**
 - Counting char occurences (3.)
@@ -69,6 +88,28 @@ The original list lists the challenges unordered. To give a better overview, I s
 - Convert byte array to string (46.)
 - Replace char (47.)
 
+**Numbers**
+- Check if number is palindrome (76.)
+- Check if number is Armstrong number (77.)
+- Find all prime factors of a number (78.)
+- Check if number is positive/negative (79.)
+- Find largest prime factor of given number (80.)
+- Print all primes up to a number (81.)
+- Floyd's trianlge (82.)
+- Pascal's triangle (83.)
+- Calculate square root (84.)
+- Check if a number is a prime (85.)
+- Add two numbers without using arithmetic operators (86.)
+- Check if number is even/odd without using arithmetic operators (87.)
+- Reverse an Integer (90.)
+- Convert decimal to binary (91.)
+- Sieve of Eratosthenes (100.)
+
 **Mixed**
-- Check if two rectangles overlap (13.)
-- Desing a vending machine (14.)
+- Check if two rectangles overlap (13., 73.)
+- Desing a vending machine (14., 74.)
+- Swap number without using a third variable (12., 72.)
+- Implement an LRU cache (75.)
+- Find highest repeating word in a file (89.)
+- Pyramid structure (88.)
+- Check lap year (92.)
